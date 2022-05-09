@@ -17,9 +17,7 @@ class GeometriaTest {
 		int resultado = geometria.areacuadrado(2);
 		int esperado = 4;
 		int delta = 1;
-		/* delta será el margen de error bidireccional, en este caso 1
-		 * 
-		 */
+		/* delta será el margen de error bidireccional, en este caso 1 */
 		assertEquals(esperado, resultado, delta);
 	}
 	
