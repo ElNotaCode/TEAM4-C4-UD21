@@ -21,6 +21,12 @@ class GeometriaTest {
 		assertEquals(esperado, resultado, delta);
 	}
 	
+	@Test
+	public void testAreaCirculo() {
+		double resultado = geometria.areaCirculo(3);
+		
+	}
+	
 	
 	
 }
