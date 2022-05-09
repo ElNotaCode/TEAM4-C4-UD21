@@ -12,9 +12,9 @@ public class Controller {
 	//metodo insertarCantidadConvertir(String value) que pasa el valor del lblCantidad a double
 	public double cantidadConvertir(String lblValue) {
 		//toDouble
-		double cantidadConvertir = Double.parseDouble(lblValue);
+		double cantidadConvertir = Double.parseDouble(lblValue.replace(',', '.'));
 		return cantidadConvertir;
-	}
+	} //TODO añadir excepción
 	
 	//select divisas
 	//cambioDivisas(String value,String value2) lo que va a hacer es coger los values del select divisa1 y divisa2 y procesará la info
@@ -76,7 +76,7 @@ public class Controller {
 	//lblConvertido cantidad una vez procesada
 	//pasa de double a string
 	public String convertidoToString(double value) {
-		return Double.toString(value);
+		return Double.toString(value).replace('.', ',');
 	}
 	
 	//metodo para borrar
