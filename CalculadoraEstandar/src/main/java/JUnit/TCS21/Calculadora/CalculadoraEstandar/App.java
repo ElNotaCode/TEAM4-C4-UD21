@@ -1,20 +1,24 @@
 package JUnit.TCS21.Calculadora.CalculadoraEstandar;
 
-import JUnit.TCS21.Calculadora.CalculadoraEstandar.dto.Geometria;
+import java.awt.EventQueue;
 
-/**
- * Hello world!
- *
- */
+import JUnit.TCS21.Calculadora.CalculadoraEstandar.view.View;
 public class App 
 {
-    public static void main( String[] args )
-    {
-	   //Creacion de Objeto Circulo
-	   Geometria gm = new Geometria(2);
-	   double areaCirc= gm.areaCirculo(2);
-	   gm.setArea(areaCirc);    
-	   System.out.println(gm);
-    }
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					View frame = new View();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
     
 }
