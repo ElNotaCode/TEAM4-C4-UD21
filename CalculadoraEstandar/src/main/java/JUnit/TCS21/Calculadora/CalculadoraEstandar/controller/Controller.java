@@ -29,9 +29,6 @@ public class Controller {
 		switch (divisa1) {
 		case "EURO":
 			switch (divisa2) {
-			case "EURO":
-				//mismo valor
-				break;
 			case "LIBRA":
 				return convertidoToString(divisa.calcularEuroLibra(cantidadConvertir(lblValue)));
 			case "DOLAR":
@@ -39,38 +36,27 @@ public class Controller {
 			default:
 				return lblValue;
 			}
-			break;
 		case "LIBRA":
 			switch (divisa2) {
 			case "EURO":
 				return convertidoToString(divisa.calcularLibraEuro(cantidadConvertir(lblValue)));
-			case "LIBRA":
-				//mismo valor
-				break;
 			case "DOLAR":
 				return convertidoToString(divisa.calcularLibraDolar(cantidadConvertir(lblValue)));
 			default:
 				return lblValue;
 			}
-			break;
 		case "DOLAR":
 			switch (divisa2) {
 			case "EURO":
 				return convertidoToString(divisa.calcularDolarEuro(cantidadConvertir(lblValue)));
 			case "LIBRA":
 				return convertidoToString(divisa.calcularDolarLibra(cantidadConvertir(lblValue)));
-			case "DOLAR":
-				//mismo valor
-				break;
 			default:
-				break;
+				return lblValue;
 			}
-			break;
 		default:
 			return lblValue;
 		}
-		
-		return "Error";
 		
 	}
 	
