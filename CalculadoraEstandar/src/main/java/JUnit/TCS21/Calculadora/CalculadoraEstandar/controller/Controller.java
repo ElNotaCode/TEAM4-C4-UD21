@@ -27,39 +27,39 @@ public class Controller {
 		//comparar divisa1 y divisa2 y llamar al metodo correspondiente
 		
 		switch (divisa1) {
-		case "Euro":
+		case "EURO":
 			switch (divisa2) {
-			case "Euro":
+			case "EURO":
 				//mismo valor
 				break;
-			case "Libra":
+			case "LIBRA":
 				return convertidoToString(divisa.calcularEuroLibra(cantidadConvertir(lblValue)));
-			case "Dolar":
+			case "DOLAR":
 				return convertidoToString(divisa.calcularEuroDolar(cantidadConvertir(lblValue)));
 			default:
-				break;
+				return "Error";
 			}
 			break;
-		case "Libra":
+		case "LIBRA":
 			switch (divisa2) {
-			case "Euro":
+			case "EURO":
 				return convertidoToString(divisa.calcularLibraEuro(cantidadConvertir(lblValue)));
-			case "Libra":
+			case "LIBRA":
 				//mismo valor
 				break;
-			case "Dolar":
+			case "DOLAR":
 				return convertidoToString(divisa.calcularLibraDolar(cantidadConvertir(lblValue)));
 			default:
-				break;
+				return "Error";
 			}
 			break;
-		case "Dolar":
+		case "DOLAR":
 			switch (divisa2) {
-			case "Euro":
+			case "EURO":
 				return convertidoToString(divisa.calcularDolarEuro(cantidadConvertir(lblValue)));
-			case "Libra":
+			case "LIBRA":
 				return convertidoToString(divisa.calcularDolarLibra(cantidadConvertir(lblValue)));
-			case "Dolar":
+			case "DOLAR":
 				//mismo valor
 				break;
 			default:
