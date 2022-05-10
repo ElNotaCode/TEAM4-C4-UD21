@@ -1,6 +1,10 @@
 package JUnit.TCS21.Calculadora.CalculadoraEstandar.controller;
 
+import JUnit.TCS21.Calculadora.CalculadoraEstandar.dto.Divisa;
+
 public class Controller {
+	
+	Divisa divisa = new Divisa();
 	
 	//recoger los datos de el add event listener y actualizar el label de CANTIDAD
 	//montarLblCantidad lo que hace es coger el getValue de lbl y de el boton pulsado y los concatena
@@ -29,11 +33,9 @@ public class Controller {
 				//mismo valor
 				break;
 			case "Libra":
-				return convertidoToString(Divisa.calcularEuroLibra(cantidadConvertir(lblValue)));
-				break;
+				return convertidoToString(divisa.calcularEuroLibra(cantidadConvertir(lblValue)));
 			case "Dolar":
-				return convertidoToString(Divisa.calcularEuroDolar(cantidadConvertir(lblValue)));
-				break;
+				return convertidoToString(divisa.calcularEuroDolar(cantidadConvertir(lblValue)));
 			default:
 				break;
 			}
@@ -41,14 +43,12 @@ public class Controller {
 		case "Libra":
 			switch (divisa2) {
 			case "Euro":
-				return convertidoToString(Divisa.calcularLibraEuro(cantidadConvertir(lblValue)));
-				break;
+				return convertidoToString(divisa.calcularLibraEuro(cantidadConvertir(lblValue)));
 			case "Libra":
 				//mismo valor
 				break;
 			case "Dolar":
-				return convertidoToString(Divisa.calcularLibraDolar(cantidadConvertir(lblValue)));
-				break;
+				return convertidoToString(divisa.calcularLibraDolar(cantidadConvertir(lblValue)));
 			default:
 				break;
 			}
@@ -56,11 +56,9 @@ public class Controller {
 		case "Dolar":
 			switch (divisa2) {
 			case "Euro":
-				return convertidoToString(Divisa.calcularDolarEuro(cantidadConvertir(lblValue)));
-				break;
+				return convertidoToString(divisa.calcularDolarEuro(cantidadConvertir(lblValue)));
 			case "Libra":
-				return convertidoToString(Divisa.calcularDolarLibra(cantidadConvertir(lblValue)));
-				break;
+				return convertidoToString(divisa.calcularDolarLibra(cantidadConvertir(lblValue)));
 			case "Dolar":
 				//mismo valor
 				break;
@@ -69,8 +67,11 @@ public class Controller {
 			}
 			break;
 		default:
-			break;
+			return "Error";
 		}
+		
+		return "Error";
+		
 	}
 	
 	//lblConvertido cantidad una vez procesada
