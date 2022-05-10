@@ -10,6 +10,8 @@ import javax.swing.JToggleButton;
 import javax.swing.border.EmptyBorder;
 import javax.swing.plaf.metal.MetalToggleButtonUI;
 
+import org.junit.platform.commons.util.StringUtils;
+
 import JUnit.TCS21.Calculadora.CalculadoraEstandar.controller.Controller;
 import JUnit.TCS21.Calculadora.CalculadoraEstandar.dto.Divisa;
 
@@ -171,17 +173,44 @@ public class View extends JFrame {
 	public void recogerBotones(List<JButton> list) {
 		for (JButton button : list) { // recorremos toda la lista
 			
+		
+	
+			
+			
 			button.addActionListener(new ActionListener() {
+				
+				
 				public void actionPerformed(ActionEvent arg0) {
-					stringvalorentero += button.getText();
-					//insertarCantidadConvertir(String value)
-					//System.out.println(stringvalorentero);
-					lbCantidad.setText(controller.montarLblCantidad(lbCantidad.getText(), button.getText()));
-					lbCantidad.setText(stringvalorentero);
-					//lbltexto el label que se utiliza para meter los numeros
-					//controller.cambioDivisa(lbCantidad.getText(),comboBoxCantidad.getSelectedItem().toString(), comboBoxConvertido.getSelectedItem().toString());
+					
+					if(!button.getText().equals("CE") && !button.getText().equals("X")) {
+						stringvalorentero += button.getText();
+						//insertarCantidadConvertir(String value)
+						//System.out.println(stringvalorentero);
+						lbCantidad.setText(controller.montarLblCantidad(lbCantidad.getText(), button.getText()));
+						lbCantidad.setText(stringvalorentero);
+						//lbltexto el label que se utiliza para meter los numeros
+						//controller.cambioDivisa(lbCantidad.getText(),comboBoxCantidad.getSelectedItem().toString(), comboBoxConvertido.getSelectedItem().toString());
+					}else 
+					
+					if(button.getText().equals("X")){
+						//eliminar el ultimo valor
+						
+						 stringvalorentero = stringvalorentero.substring(0, stringvalorentero.length()-1);		
+						
+						lbCantidad.setText(stringvalorentero);
+						     
+					}else {
+						lbCantidad.setText("0");
+						stringvalorentero = "";
+						lbConvertido.setText(stringvalorentero);
+						
+					}
+				
 				}
 			});
+			
+			
+			
 
 					
 		}
