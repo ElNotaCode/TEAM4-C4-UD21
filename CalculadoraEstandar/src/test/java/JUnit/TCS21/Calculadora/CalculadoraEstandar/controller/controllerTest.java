@@ -22,7 +22,13 @@ class controllerTest {
 		assertEquals(resultado, esperado);
 	}
 	
-	//TODO: testCambioDivisa
+	//String cambioDivisa(String lblValue,String divisa1, String divisa2)
+	@Test //TODO añadir trim a la funcion
+	public void testCambioDivisa() {
+		String resultado = controlador.cambioDivisa("3.00","Euro","Dolar");
+		String esperado = "3,15";
+		assertEquals(resultado, esperado);
+	}
 	
 	@Test
 	public void testConvertidoToString() {
@@ -38,4 +44,5 @@ class controllerTest {
 		String esperado = "";
 		assertEquals(resultado, esperado);
 	}
+	
 }
