@@ -37,7 +37,7 @@ public class Controller {
 			case "DOLAR":
 				return convertidoToString(divisa.calcularEuroDolar(cantidadConvertir(lblValue)));
 			default:
-				return "Error";
+				return lblValue;
 			}
 			break;
 		case "LIBRA":
@@ -50,7 +50,7 @@ public class Controller {
 			case "DOLAR":
 				return convertidoToString(divisa.calcularLibraDolar(cantidadConvertir(lblValue)));
 			default:
-				return "Error";
+				return lblValue;
 			}
 			break;
 		case "DOLAR":
@@ -67,7 +67,7 @@ public class Controller {
 			}
 			break;
 		default:
-			return "Error";
+			return lblValue;
 		}
 		
 		return "Error";
