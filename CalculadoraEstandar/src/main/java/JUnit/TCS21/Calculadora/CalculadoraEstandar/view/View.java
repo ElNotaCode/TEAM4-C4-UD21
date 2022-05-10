@@ -19,11 +19,16 @@ import java.util.List;
 import javax.swing.JLabel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JComboBox;
 
 public class View extends JFrame {
 
 	private JPanel contentPane;
 	private String stringvalorentero = "";
+	public static JLabel lbCantidad = new JLabel("0");
+	public static JLabel lbConvertido = new JLabel("0");
+	public static JComboBox comboBoxConvertido = new JComboBox();
+	public static JComboBox comboBoxCantidad = new JComboBox();
 
 	/**
 	 * Create the frame.
@@ -82,6 +87,29 @@ public class View extends JFrame {
 		lblNewLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 18));
 		lblNewLabel.setBounds(63, 40, 188, 16);
 		contentPane.add(lblNewLabel);
+		lbCantidad.setFont(new Font("Lucida Grande", Font.PLAIN, 34));
+		
+		lbCantidad.setBounds(41, 217, 57, 36);
+		contentPane.add(lbCantidad);
+		lbConvertido.setFont(new Font("Lucida Grande", Font.PLAIN, 34));
+		
+		lbConvertido.setBounds(41, 112, 52, 36);
+		contentPane.add(lbConvertido);
+		
+		JComboBox comboBoxConvertido = new JComboBox();
+		comboBoxConvertido.setBounds(24, 160, 126, 27);
+		contentPane.add(comboBoxConvertido);
+		comboBoxConvertido.addItem("EURO");
+		comboBoxConvertido.addItem("LIBRA");
+		comboBoxConvertido.addItem("DOLAR");
+		
+		JComboBox comboBoxCantidad = new JComboBox();
+		comboBoxCantidad.setBounds(24, 276, 126, 27);
+		contentPane.add(comboBoxCantidad);
+		comboBoxCantidad.addItem("EURO");
+		comboBoxCantidad.addItem("LIBRA");
+		comboBoxCantidad.addItem("DOLAR");
+
 		
 		
 		
@@ -123,10 +151,12 @@ public class View extends JFrame {
 			
 			button.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					stringvalorentero += button.getText();
+					//stringvalorentero += button.getText();
 					//insertarCantidadConvertir(String value)
-					System.out.println(stringvalorentero);
-
+					//System.out.println(stringvalorentero);
+					lbConvertido.setText(montarLblCantidad(lbCantidad.getText(), button.getText()));
+					insertarDivisa(comboBoxCantidad.getSelectedItem().toString() ,comboBoxConvertido.getSelectedItem().toString());
+					//lbltexto el label que se utiliza para meter los numeros
 				}
 			});
 
