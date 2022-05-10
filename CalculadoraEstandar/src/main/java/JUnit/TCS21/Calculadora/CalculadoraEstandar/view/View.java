@@ -9,6 +9,10 @@ import javax.swing.JPanel;
 import javax.swing.JToggleButton;
 import javax.swing.border.EmptyBorder;
 import javax.swing.plaf.metal.MetalToggleButtonUI;
+
+import JUnit.TCS21.Calculadora.CalculadoraEstandar.controller.Controller;
+import JUnit.TCS21.Calculadora.CalculadoraEstandar.dto.Divisa;
+
 import javax.swing.JButton;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
@@ -22,6 +26,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.JComboBox;
 
 public class View extends JFrame {
+	Controller controller = new Controller();
 
 	private JPanel contentPane;
 	private String stringvalorentero = "";
@@ -89,26 +94,42 @@ public class View extends JFrame {
 		contentPane.add(lblNewLabel);
 		lbCantidad.setFont(new Font("Lucida Grande", Font.PLAIN, 34));
 		
-		lbCantidad.setBounds(41, 217, 57, 36);
+		lbCantidad.setBounds(41, 217, 343, 36);
 		contentPane.add(lbCantidad);
 		lbConvertido.setFont(new Font("Lucida Grande", Font.PLAIN, 34));
 		
-		lbConvertido.setBounds(41, 112, 52, 36);
+		lbConvertido.setBounds(41, 112, 343, 36);
 		contentPane.add(lbConvertido);
 		
 		JComboBox comboBoxConvertido = new JComboBox();
-		comboBoxConvertido.setBounds(24, 160, 126, 27);
+		comboBoxConvertido.setBounds(24, 160, 117, 27);
 		contentPane.add(comboBoxConvertido);
+		
+	
+		
 		comboBoxConvertido.addItem("EURO");
 		comboBoxConvertido.addItem("LIBRA");
 		comboBoxConvertido.addItem("DOLAR");
 		
 		JComboBox comboBoxCantidad = new JComboBox();
-		comboBoxCantidad.setBounds(24, 276, 126, 27);
+		comboBoxCantidad.setBounds(24, 276, 117, 27);
 		contentPane.add(comboBoxCantidad);
 		comboBoxCantidad.addItem("EURO");
 		comboBoxCantidad.addItem("LIBRA");
 		comboBoxCantidad.addItem("DOLAR");
+		
+		JButton brnCalcular = new JButton("Calcular");
+		brnCalcular.setBounds(24, 355, 117, 29);
+		contentPane.add(brnCalcular);
+		
+		brnCalcular.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				lbCantidad.setText(stringvalorentero);
+				//lbltexto el label que se utiliza para meter los numeros
+				lbConvertido.setText(controller.cambioDivisa(lbCantidad.getText(),comboBoxCantidad.getSelectedItem().toString(), comboBoxConvertido.getSelectedItem().toString()));
+			}
+		});
 
 		
 		
@@ -131,6 +152,7 @@ public class View extends JFrame {
 
 		generarBotones(listButton);
 		recogerBotones(listButton);
+//Controller.insertarDivisa(comboBoxCantidad.getSelectedItem().toString() ,comboBoxConvertido.getSelectedItem().toString());
 
 		
 	}
@@ -151,12 +173,13 @@ public class View extends JFrame {
 			
 			button.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					//stringvalorentero += button.getText();
+					stringvalorentero += button.getText();
 					//insertarCantidadConvertir(String value)
 					//System.out.println(stringvalorentero);
-					lbConvertido.setText(montarLblCantidad(lbCantidad.getText(), button.getText()));
-					insertarDivisa(comboBoxCantidad.getSelectedItem().toString() ,comboBoxConvertido.getSelectedItem().toString());
+					lbCantidad.setText(controller.montarLblCantidad(lbCantidad.getText(), button.getText()));
+					lbCantidad.setText(stringvalorentero);
 					//lbltexto el label que se utiliza para meter los numeros
+					//controller.cambioDivisa(lbCantidad.getText(),comboBoxCantidad.getSelectedItem().toString(), comboBoxConvertido.getSelectedItem().toString());
 				}
 			});
 
